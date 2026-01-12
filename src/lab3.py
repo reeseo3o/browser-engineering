@@ -1,8 +1,8 @@
 import wbetools
 import tkinter
 import tkinter.font
-from .lab1 import URL
-from .lab2 import WIDTH, HEIGHT, HSTEP, VSTEP, SCROLL_STEP, Browser
+from lab1 import URL
+from lab2 import WIDTH, HEIGHT, HSTEP, VSTEP, SCROLL_STEP, Browser
 
 class Text:
     def __init__(self, text):
@@ -174,5 +174,5 @@ if __name__ == "__main__":
     Browser().load(URL(sys.argv[1]))
     tkinter.mainloop()
 
-# 실행 방법: python lab3.py http://info.cern.ch
+# 실행 방법: python src/lab3.py http://info.cern.ch
 # GUI 창이 뜨며, 폰트 포맷팅(bold, italic 등) 적용됨

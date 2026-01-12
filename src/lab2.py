@@ -1,6 +1,6 @@
 import wbetools
 import tkinter
-from .lab1 import URL
+from lab1 import URL
 
 def lex(body):
     print(f"[LEX] Starting lexical analysis, body length: {len(body)}")
@@ -87,5 +87,5 @@ if __name__ == "__main__":
     Browser().load(URL(sys.argv[1]))
     tkinter.mainloop()
 
-# 실행 방법: python lab2.py http://info.cern.ch
+# 실행 방법: python src/lab2.py http://info.cern.ch
 # GUI 창이 뜨며, Down 키로 스크롤 가능
