@@ -11,8 +11,11 @@ Browser Engineering 프로젝트 실행 스크립트
     python run.py 3 http://browser.engineering/examples/example1-formatting.html
     python run.py 4 https://browser.engineering/layout.html
     python run.py 5 https://browser.engineering/layout.html
-    python run.py 6 https://browser.engineering/layout.html
+    python run.py 6 https://browser.engineering
     python run.py 7 https://browser.engineering/
+    python run.py 8 https://browser.engineering/
+    python run.py 9 https://browser.engineering/
+    python run.py 10 https://browser.engineering/
 """
 
 import sys
@@ -33,6 +36,9 @@ def main():
         print("  5: 블록 레이아웃 브라우저 (Block layout + Document layout)")
         print("  6: CSS 스타일링 브라우저 (CSS parsing + styling)")
         print("  7: 탭 브라우저 (Tabs + Chrome UI)")
+        print("  8: 폼 입력 브라우저 (Input fields + focus)")
+        print("  9: JavaScript 실행 브라우저 (DukPy)")
+        print("  10: 쿠키/보안 브라우저 (Cookies + CSP)")
         return
 
     lab_num = sys.argv[1]
@@ -45,6 +51,9 @@ def main():
         "5": "http://browser.engineering/examples/example1-formatting.html",
         "6": "http://browser.engineering/examples/example1-formatting.html",
         "7": "https://browser.engineering/",
+        "8": "https://browser.engineering/",
+        "9": "https://browser.engineering/",
+        "10": "https://browser.engineering/",
     }
 
     url = (
@@ -124,9 +133,43 @@ def main():
         browser.new_tab(URL(url))
         tkinter.mainloop()
 
+    elif lab_num == "8":
+        # lab8/lab9/lab10은 browser8.css, runtime9.js 등 src 내 상대경로 사용
+        os.chdir(os.path.join(os.path.dirname(__file__), "src"))
+        print(f"=== Lab 8: 폼 입력 브라우저 실행 ===")
+        print(f"URL: {url}")
+        import tkinter
+        from lab8 import URL, Browser
+
+        browser = Browser()
+        browser.new_tab(URL(url))
+        tkinter.mainloop()
+
+    elif lab_num == "9":
+        os.chdir(os.path.join(os.path.dirname(__file__), "src"))
+        print(f"=== Lab 9: JavaScript 실행 브라우저 실행 ===")
+        print(f"URL: {url}")
+        import tkinter
+        from lab9 import URL, Browser
+
+        browser = Browser()
+        browser.new_tab(URL(url))
+        tkinter.mainloop()
+
+    elif lab_num == "10":
+        os.chdir(os.path.join(os.path.dirname(__file__), "src"))
+        print(f"=== Lab 10: 쿠키/보안 브라우저 실행 ===")
+        print(f"URL: {url}")
+        import tkinter
+        from lab10 import URL, Browser
+
+        browser = Browser()
+        browser.new_tab(URL(url))
+        tkinter.mainloop()
+
     else:
         print(f"오류: 알 수 없는 Lab 번호 '{lab_num}'")
-        print("사용 가능한 Lab: 1, 2, 3, 4, 5, 6, 7")
+        print("사용 가능한 Lab: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10")
         sys.exit(1)
 
 
